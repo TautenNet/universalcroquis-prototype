@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor prototype</title>
+    <link rel="stylesheet" href="/res/css/style.css">
+    <meta name="theme-color" content="#f4f4f4">
+</head>
+<body onclick="html.requestFullscreen()">
+    <div class="top-panel">
+        <div class="activity-selector">
+            <img src="/res/img/Arrow_no_tail.svg" class="icon disabled">
+
+            <div class="button h32">
+                <img src="/res/img/Settings.svg" class="icon">
+                <span class="important">Main</span>
+                <img src="/res/img/Play.svg" class="icon">
+            </div>
+
+            <img src="/res/img/Arrow_no_tail.svg" class="icon d180">
+        </div>
+        <div class="tabs">
+            <div class="button h24 selected-background"></div>
+            <div class="button h24">
+                Home
+            </div>
+            <div class="button h24">
+                Designer
+            </div>
+            <div class="button h24">
+                Code
+            </div>
+            <div class="button h24">
+                Components
+            </div>
+        </div>
+    </div>
+    <main>
+        <section id="designer">
+            <div class="views-list">
+                <div>
+                    <img class="icon" src="/res/img/Vertical.svg">
+                    <span>Vertical box</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Horizontal.svg">
+                    <span>Horizontal box</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Multi directionnal.svg">
+                    <span>Free box</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/List.svg">
+                    <span>List</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Canvas.svg">
+                    <span>Canvas</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Text.svg">
+                    <span>Label box</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Input.svg">
+                    <span>Input box</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Button.svg">
+                    <span>Button</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Image.svg">
+                    <span>Image</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Ticked Checkbox.svg">
+                    <span>Checkbox</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Radio button.svg">
+                    <span>Radio button</span>
+                </div>
+                <div>
+                    <img class="icon" src="/res/img/Webview.svg">
+                    <span>Webview</span>
+                </div>
+                <!--<div>
+                    <img src="/res/img">
+                    <span></span>
+                </div>-->
+            </div>
+            <div class="preview">
+                <div class="status-bar">
+                    <div class="clock">
+                        <span>12</span>
+                        <span>:</span>
+                        <span>51</span>
+                    </div>
+                    <div class="indicators">
+                        <img src="/res/img/status-bar/data.svg">
+                        <img src="/res/img/status-bar/battery.svg">
+                    </div>
+                </div>
+                <div class="action-bar">
+                    <span>Main</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/res/js/taroutils.js"></script>
+    <script src="/res/js/preview-size.js"></script>
+</body>
+</html>
