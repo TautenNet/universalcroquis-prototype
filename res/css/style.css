@@ -156,11 +156,6 @@ body {
 .icon.X2 {
   height: 48px;
 }
-@media (pointer: fine) {
-  .icon {
-    cursor: pointer;
-  }
-}
 @media (prefers-color-scheme: dark) {
   .icon {
     filter: invert(1);
@@ -190,12 +185,25 @@ main #designer {
   position: relative;
   background-color: var(--panel-background);
 }
+main #designer .dragIcon {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  height: 24px;
+  pointer-events: none;
+}
+main #designer .dragIcon:not(.moving) {
+  opacity: 0;
+  transition: 0.2s;
+}
 main #designer .views-list {
   width: 127px;
   height: 100%;
   background-color: var(--panel-background);
   border-right: solid 1px var(--border-color);
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -209,6 +217,9 @@ main #designer .views-list > div {
   border-bottom: solid 1px var(--border-color);
   font-size: 12px;
 }
+main #designer .views-list > div > * {
+  pointer-events: none;
+}
 main #designer .views-list > div *:not(:last-child) {
   margin-right: 4px;
 }
@@ -219,6 +230,12 @@ main #designer .views-list > div *:not(:last-child) {
     font-size: 8px;
     justify-content: center;
   }
+}
+main #designer .views-list > div.moving {
+  opacity: 0.5;
+}
+main #designer .views-list > div:not(.moving) {
+  transition: opacity 0.2s;
 }
 @media (max-width: 370px) {
   main #designer .views-list {

@@ -169,7 +169,7 @@ body {
     }
 
     @media (pointer: fine) {
-        cursor: pointer;
+        //cursor: pointer;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -198,12 +198,27 @@ main {
         position: relative;
         background-color: var(--panel-background);
 
+        .dragIcon {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            height: 24px;
+            pointer-events: none;
+
+            &:not(.moving) {
+                opacity: 0;
+                transition: 0.2s;
+            }
+        }
+
         .views-list {
             width: 127px; // but in reality is 128px because of the border.
             height: 100%;
             background-color: var(--panel-background);
             border-right: solid 1px var(--border-color);
-            overflow: scroll;
+            overflow-y: auto;
+            overflow-x: hidden;
             user-select: none;
 
             > div {
@@ -214,6 +229,10 @@ main {
                 border-bottom: solid 1px var(--border-color);
                 font-size: 12px;
 
+                > * {
+                    pointer-events: none;
+                }
+
                 *:not(:last-child) {
                     margin-right: 4px; // space between items
                 }
@@ -223,6 +242,14 @@ main {
                     height: 48px;
                     font-size: 8px;
                     justify-content: center;
+                }
+
+                &.moving {
+                    opacity: 0.5;
+                }
+
+                &:not(.moving) {
+                    transition: opacity 0.2s;
                 }
             }
 
