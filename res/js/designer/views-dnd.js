@@ -69,10 +69,10 @@ $$("#designer .views-list > *").forEach(item => {
     }
 });
 
-let previewPos = {x: 0, y: 0}
+/*let previewPos = {x: 0, y: 0}
 
 preview.onpointermove = preview.ontouchmove = event => {
     previewPos = {x: event.layerX, y: event.layerY}
     preview.style.background = onmove ? "blue" : "red"
     $log("moving")
-}
+}*/
