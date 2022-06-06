@@ -1,7 +1,5 @@
-const preview = $("#designer .preview")
-
 function refreshPreviewSize() {
-    let wh = window.innerHeight
+    //let wh = window.innerHeight // Unused
     let ww = window.innerWidth
     let vlw = $("#designer .views-list").offsetWidth 
     let tph = $(".top-panel").offsetHeight

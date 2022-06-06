@@ -2,8 +2,6 @@
 
 // Issues : You can't scroll in the views list anymore.
 
-const viewsList = $("#designer .views-list")
-const dragIcon = $("#designer .dragIcon")
 let yAdd = (window.matchMedia("(pointer: fine)").matches) ? "0" : "64"
 let onmove = false
 let target;
@@ -31,7 +29,7 @@ $$("#designer .views-list > *").forEach(item => {
 
         dragIcon.src = event.target.querySelector("img").src
 
-        viewsList.style.overflow = "hidden"
+        viewsListElement.style.overflow = "hidden"
         
         if (event.touches == undefined) {
             // mouse
@@ -52,13 +50,8 @@ $$("#designer .views-list > *").forEach(item => {
     function move(event) {
         let pos;
 
-        if (event.touches == undefined) {
-            // mouse
-            pos = {x: event.pageX, y: event.pageY}
-        } else {
-            // touchscreen
-            pos = {x: event.touches[0].pageX, y: event.touches[0].pageY}
-        }
+        if (event.touches == undefined) pos = {x: event.pageX, y: event.pageY}
+        else pos = {x: event.touches[0].pageX, y: event.touches[0].pageY}
 
         dragIcon.style.transform = `translate(${pos.x - (dragIcon.offsetWidth / 2)}px, ${(pos.y - (dragIcon.offsetHeight / 2)) - yAdd}px)`
     }
@@ -75,3 +68,11 @@ $$("#designer .views-list > *").forEach(item => {
         //else item.ontouchstart = null; // touchscreen 
     }
 });
+
+let previewPos = {x: 0, y: 0}
+
+preview.onpointermove = preview.ontouchmove = event => {
+    previewPos = {x: event.layerX, y: event.layerY}
+    preview.style.background = onmove ? "blue" : "red"
+    $log("moving")
+}
