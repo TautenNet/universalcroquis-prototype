@@ -102,7 +102,7 @@ viewsList.forEach(group => {
     group.views.forEach(view => {
         viewsListElement.append($createElement(`
         <div id="${view.id}">
-            <img class="icon" src="/res/img/${view.icon}.svg">
+            <img class="icon" src="res/img/${view.icon}.svg">
             <span>${view.displayName}</span>
         </div>
         `))
